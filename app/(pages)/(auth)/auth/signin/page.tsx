@@ -9,13 +9,12 @@ import CustomSpacing from '@/app/components/customSpacing';
 import { useForm , SubmitHandler} from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
-import { setToken } from '@/app/redux/slices/authSlice';
+import { getToken, setToken } from '@/app/redux/slices/authSlice';
 
 const SignInPage = () => {
 
     const dispatch = useDispatch();
     const { push } = useRouter()
-
     type signInData = {
         email : string;
         password : string ;

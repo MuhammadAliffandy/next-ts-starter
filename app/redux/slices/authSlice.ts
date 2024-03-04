@@ -1,5 +1,5 @@
+import { getCookie, setCookie } from '@/app/utils/helper';
 import { createSlice } from '@reduxjs/toolkit';
-import Cookies from 'cookie-ts'
 
 const authSlice = createSlice({
     name: 'auth',
@@ -8,11 +8,11 @@ const authSlice = createSlice({
     },
     reducers: {
         getToken: (state: any) => {
-            state.value = Cookies.get('token');
+            state.value = getCookie('token');
         },
         setToken: (state , action) => {
             const token = action.payload;
-            Cookies.set(  'token' , token , 1);
+            setCookie('token',token,365);
             state.value = token
         },
     },
