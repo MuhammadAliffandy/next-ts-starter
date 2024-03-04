@@ -88,7 +88,7 @@ const CarsList = () => {
                                         description={data.description}
                                         onClickUp={() => {
                                             dispatch(setCarsId(data.id))
-                                            router.push('/cars/update')
+                                            router.push('/example/update')
                                         }}
                                         onClickDel={()=>{console.log('del')}}
                                     />

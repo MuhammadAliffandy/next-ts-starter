@@ -87,7 +87,7 @@ const CarsUpdatePage = () => {
             }}>
                 <Box className= 'bg-white p-[30px] rounded-lg w-[70%] shadow-xl ' >
                     <Box className = 'flex justify-between'>
-                        <Button onClick={() => { push('/cars') }} className="bg-transparent text-CUSTOM-GREY text-[20px]" ><FontAwesomeIcon icon = {faArrowLeftLong} /></Button>
+                        <Button onClick={() => { push('/example') }} className="bg-transparent text-CUSTOM-GREY text-[20px]" ><FontAwesomeIcon icon = {faArrowLeftLong} /></Button>
                         <Typography variant="h5" className = 'text-CUSTOM-GREY font-poppins'>
                             Update Cars 
                         </Typography>

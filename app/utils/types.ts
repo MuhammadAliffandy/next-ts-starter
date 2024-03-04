@@ -1,3 +1,5 @@
+// this is example type 
+
 export interface CarData {
     image?: string;
     capacity?: number;
@@ -27,3 +29,5 @@ export interface CarApiData{
     options: string[];
     specs: string[];
 }
+
+//  added new type initiation in ate here
