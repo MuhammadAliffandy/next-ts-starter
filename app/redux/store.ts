@@ -8,9 +8,7 @@ import { persistStore , FLUSH ,
 import persistedReducer from './persistedReducer';
 
 export const Store = configureStore({
-    reducer: {
-      car : persistedReducer
-    },
+    reducer: persistedReducer,
     middleware :  (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
