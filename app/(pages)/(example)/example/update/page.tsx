@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
-import CustomSpacing from "../component/customSpacing";
+import CustomSpacing from "../../../../components/customSpacing";
 import { useRouter } from "next/navigation";
 import UpdateModal from "./component/updateModal";
 

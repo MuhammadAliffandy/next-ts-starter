@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import { CarApiData } from "@/app/utils/types";
 import { formattedDate } from "@/app/utils/helper";
 import DropDown from "./component/dropDown";
-import CustomSpacing from "./component/customSpacing";
+import CustomSpacing from "../../../components/customSpacing";
 import { CardLoader } from "./component/loader/carsdLoader";
 
 

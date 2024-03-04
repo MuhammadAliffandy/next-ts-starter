@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import CustomSpacing from '../../component/customSpacing';
+import CustomSpacing from '../../../../../components/customSpacing';
 
 const style = {
     position: 'absolute' as 'absolute',
