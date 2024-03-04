@@ -8,25 +8,20 @@ import Button from '@mui/material/Button'
 import CustomSpacing from '@/app/components/customSpacing';
 import { useForm , SubmitHandler} from 'react-hook-form';
 import { useRouter } from 'next/navigation';
-import { useDispatch } from 'react-redux';
-import { setToken } from '@/app/redux/slices/authSlice';
 
-const SignInPage = () => {
+const ForgotPasswordPage = () => {
 
-    const dispatch = useDispatch();
     const { push } = useRouter()
 
-    type signInData = {
+    type forgotPassData = {
         email : string;
-        password : string ;
     }
 
-    const { register, handleSubmit, formState: { errors } } = useForm<signInData>();
+    const { register, handleSubmit, formState: { errors } } = useForm<forgotPassData>();
     
-    const onSubmit : SubmitHandler<signInData> = (data ) => {
+    const onSubmit : SubmitHandler<forgotPassData> = (data ) => {
         console.log(data);
-        dispatch(setToken('ada'))
-        push('/example')
+        return data;
     };
 
     return(
@@ -46,31 +41,15 @@ const SignInPage = () => {
                             error={Boolean(errors.email)}
                             helperText={errors.email && errors.email.message}
                             />
-                        <TextField
-                            className=' w-[100%]'
-                            id="password"
-                            label="Password"
-                            placeholder='Password'
-                            type="password"
-                            {...register('password', { required: 'Password is required', pattern: { value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])\S{8,}$/, message: 'Invalid password required' } })}
-                            error={Boolean(errors.password)}
-                            helperText={errors.password && errors.password.message}
-                        
-                        />  
                         <CustomSpacing height = {20} /> 
-                        <Box className = 'w-[100%] flex justify-end'>
-                            <Typography className='text-black'>Lupa Password</Typography>
-                        </Box>
-
-                        <CustomSpacing height = {20} />
                         <Button type='submit' variant="contained" className='w-[100%]'>
-                            Masuk
+                            kirim 
                         </Button>
-                        <Typography  onClick = {()=>{push('/auth/signup')}}  className='text-black cursor-pointer'>belum punya akun</Typography>
+                        <Typography  onClick = {()=>{push('/auth/signin')}}  className='text-black cursor-pointer'>belum punya akun</Typography>
                     </form>
             </Box>
         </Container>
     )
 }
 
-export default SignInPage;
+export default ForgotPasswordPage;
