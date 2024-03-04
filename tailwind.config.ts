@@ -8,10 +8,30 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        'custom-blue': '#007bff',
+        'custom-red': '#dc3545',
+        'custom-green': '#28a745',
+        'CUSTOM-GREY': '#474E68',
+        'CUSTOM-GREY-LIGHT': '#6B728E',
+      },
+      spacing: {
+        '72': '18rem',
+        '84': '21rem',
+        '96': '24rem',
+      },
+      fontFamily: {
+        sans: ['Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+        serif: ['Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+        mono: ['Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+        poppins : ['Poppins','sans-serif']
+      },
+      screens: {
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
       },
     },
   },
