@@ -8,6 +8,7 @@ import Button from '@mui/material/Button'
 import CustomSpacing from '@/app/components/customSpacing';
 import { useForm , SubmitHandler } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
+import { validateEmail, validateName, validatePassword, validatePhoneNumber } from '../component/validation';
 
 const SignUpPage  = () => {
 
@@ -43,7 +44,10 @@ const SignUpPage  = () => {
                             id="name"
                             label="Name"
                             placeholder='Name'
-                            {...register('name', { required: 'Name is required', pattern: { value: /^[a-zA-Z0-9_ ]{5,40}$/, message: 'Invalid name' } })}
+                            {...register('name', 
+                                {
+                                    validate: validateName
+                                })}
                             error={Boolean(errors.name)}
                             helperText={errors.name && errors.name.message}
                         />
@@ -52,7 +56,9 @@ const SignUpPage  = () => {
                             id="email"
                             label="Email"
                             placeholder='Email'
-                            {...register('email', { required: 'Email is required', pattern: { value: /^\S+@\S+$/, message: 'Invalid email address' } })}
+                            {...register('email', {
+                                validate : validateEmail
+                            })}
                             error={Boolean(errors.email)}
                             helperText={errors.email && errors.email.message}
                         />
@@ -61,7 +67,9 @@ const SignUpPage  = () => {
                             id="phoneNumber"
                             label="No Handphone"
                             placeholder='Nomor Handphone'
-                            {...register('phoneNumber', { required: 'No Handphone required', pattern: { value: /^\d{10,15}$/, message: 'Invalid Handphone number address' } })}
+                            {...register('phoneNumber', { 
+                                validate: validatePhoneNumber 
+                            })}
                             error={Boolean(errors.phoneNumber)}
                         />
                         <TextField
@@ -70,7 +78,9 @@ const SignUpPage  = () => {
                             label="Password"
                             placeholder='Password'
                             type="password"
-                            {...register('password', { required: 'Password is required', pattern: { value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])\S{8,}$/, message: 'Invalid password required' } })}
+                            {...register('password', {
+                                validate : validatePassword
+                            })}
                             error={Boolean(errors.password)}
                             helperText={errors.password && errors.password.message}
                         
@@ -82,7 +92,7 @@ const SignUpPage  = () => {
                             type="password"
                             {...register('confirmPassword', {
                             required: 'Please confirm your password',
-                            validate: value => value === password || 'The passwords do not match'
+                                validate: value => value === password || 'Password tidak cocok'
                             })}
                             error={Boolean(errors.confirmPassword)}
                             helperText={errors.confirmPassword && errors.confirmPassword.message}

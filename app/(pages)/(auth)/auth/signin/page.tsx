@@ -10,6 +10,7 @@ import { useForm , SubmitHandler} from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 import { getToken, setToken } from '@/app/redux/slices/authSlice';
+import { validateEmail, validatePassword } from '../component/validation';
 
 const SignInPage = () => {
 
@@ -41,7 +42,9 @@ const SignInPage = () => {
                             id="email"
                             label="Email"
                             placeholder='Email'
-                            {...register('email', { required: 'Email is required', pattern: { value: /^\S+@\S+$/, message: 'Invalid email address' } })}
+                            {...register('email', { 
+                                validate : validateEmail
+                            })}
                             error={Boolean(errors.email)}
                             helperText={errors.email && errors.email.message}
                             />
@@ -51,14 +54,17 @@ const SignInPage = () => {
                             label="Password"
                             placeholder='Password'
                             type="password"
-                            {...register('password', { required: 'Password is required', pattern: { value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])\S{8,}$/, message: 'Invalid password required' } })}
+                            {...register(
+                                'password', {   
+                                    validate : validatePassword
+                            })}
                             error={Boolean(errors.password)}
                             helperText={errors.password && errors.password.message}
                         
                         />  
                         <CustomSpacing height = {20} /> 
                         <Box className = 'w-[100%] flex justify-end'>
-                            <Typography className='text-black'>Lupa Password</Typography>
+                            <Typography onClick = {()=>{push('forgot-pass')}} className='text-black cursor-pointer'>Lupa Password</Typography>
                         </Box>
 
                         <CustomSpacing height = {20} />

@@ -8,6 +8,7 @@ import Button from '@mui/material/Button'
 import CustomSpacing from '@/app/components/customSpacing';
 import { useForm , SubmitHandler} from 'react-hook-form';
 import { useRouter } from 'next/navigation';
+import { validateEmail } from '../component/validation';
 
 const ForgotPasswordPage = () => {
 
@@ -28,7 +29,7 @@ const ForgotPasswordPage = () => {
         <Container className='bg-red-500'>
             <Box className = 'bg-white flex flex-col items-center shadow-xl rounded-sm p-[10px]'>
                 <Typography className='text-[20px] text-black'>
-                    Login
+                    Lupa Password
                 </Typography>
                 <CustomSpacing height = {10} />
                     <form onSubmit={handleSubmit(onSubmit)}  className='flex flex-col gap-[20px] w-[100%]'>
@@ -37,7 +38,9 @@ const ForgotPasswordPage = () => {
                             id="email"
                             label="Email"
                             placeholder='Email'
-                            {...register('email', { required: 'Email is required', pattern: { value: /^\S+@\S+$/, message: 'Invalid email address' } })}
+                            {...register('email', { 
+                                validate : validateEmail
+                            } )}
                             error={Boolean(errors.email)}
                             helperText={errors.email && errors.email.message}
                             />
@@ -45,7 +48,7 @@ const ForgotPasswordPage = () => {
                         <Button type='submit' variant="contained" className='w-[100%]'>
                             kirim 
                         </Button>
-                        <Typography  onClick = {()=>{push('/auth/signin')}}  className='text-black cursor-pointer'>belum punya akun</Typography>
+                        <Typography  onClick = {()=>{push('/auth/signin')}}  className='text-black cursor-pointer'>kembali</Typography>
                     </form>
             </Box>
         </Container>
