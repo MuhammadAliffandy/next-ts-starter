@@ -62,12 +62,12 @@ const SignInPage = () => {
                             helperText={errors.password && errors.password.message}
                         
                         />  
-                        <CustomSpacing height = {20} /> 
+                        <CustomSpacing height = {10} /> 
                         <Box className = 'w-[100%] flex justify-end'>
                             <Typography onClick = {()=>{push('forgot-pass')}} className='text-black cursor-pointer'>Lupa Password</Typography>
                         </Box>
 
-                        <CustomSpacing height = {20} />
+                        <CustomSpacing height = {10} />
                         <Button type='submit' variant="contained" className='w-[100%]'>
                             Masuk
                         </Button>
